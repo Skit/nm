@@ -25,7 +25,6 @@ messageCache = []
 
 async def send_message(user_id: int, text: str, disable_notification: bool = False) -> bool:
     try:
-       pass
        await bot.send_message(user_id, text, disable_notification=disable_notification, disable_web_page_preview=True)
     except exceptions.BotBlocked:
         log.error(f"Target [ID:{user_id}]: blocked by user")
