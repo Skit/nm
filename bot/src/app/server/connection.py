@@ -1,4 +1,4 @@
-from src.app.server.db import Db, StoreException
+from bot.src.app.server.db import Db, StoreException
 
 
 class Connection(Db):
@@ -7,7 +7,7 @@ class Connection(Db):
             super().__init__()
             self.conn = Db.get_connection(self)
         except Exception as e:
-            raise StoreException(*e.args, **e.kwargs)
+            raise StoreException(*e.args)
         self._complete = False
 
     def __enter__(self):

@@ -1,5 +1,5 @@
-from src.domain.repositories import BazaarsRepository, MenuRepository
-from src.app.factories.MessageFactory import get_message
+from bot.src.domain.repositories import BazaarsRepository, MenuRepository
+from bot.src.app.factories.MessageFactory import get_message
 
 
 class BazaarManager(BazaarsRepository.BazaarsRepository, MenuRepository.MenuRepository):
@@ -14,8 +14,8 @@ class BazaarManager(BazaarsRepository.BazaarsRepository, MenuRepository.MenuRepo
 
         if day_key:
             for bazaar in super().get_all(day_key, language_code):
-                message += "\n" + '📍<a href="' + bazaar['mapUrl'] + '">' + bazaar['title'] + '</a>' + "\n" + \
-                           bazaar['description'] + "\n"
+                message += "\n" + '📍<a href="' + bazaar[3] + '">' + bazaar[1] + '</a>' + "\n" + \
+                           bazaar[2] + "\n"
         else:
             message = ''
 

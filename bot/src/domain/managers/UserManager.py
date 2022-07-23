@@ -1,4 +1,4 @@
-from src.domain.repositories.UsersRepository import UsersRepository
+from bot.src.domain.repositories.UsersRepository import UsersRepository
 
 
 class UserManager(UsersRepository):
@@ -9,6 +9,5 @@ class UserManager(UsersRepository):
             from_user.first_name,
             from_user.last_name,
             from_user.username,
-            from_user.language_code,
-            from_user.is_bot
+            from_user.language_code
         )

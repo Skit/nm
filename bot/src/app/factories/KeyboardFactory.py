@@ -1,5 +1,5 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
-from src.domain.repositories.MenuRepository import MenuRepository
+from bot.src.domain.repositories.MenuRepository import MenuRepository
 
 
 def get_keyboard(language_code: str):

@@ -1,4 +1,4 @@
-from src.app.messages.all import all_langs
+from bot.src.app.messages.all import all_langs
 from string import Template
 
 

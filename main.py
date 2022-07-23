@@ -5,9 +5,9 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from dotenv import load_dotenv
-from src.app.factories.MessageFactory import get_message
-from src.app.factories import KeyboardFactory
-from src.domain.managers import UserManager, BazaarManager
+from bot.src.app.factories.MessageFactory import get_message
+from bot.src.app.factories import KeyboardFactory
+from bot.src.domain.managers import UserManager, BazaarManager
 
 load_dotenv()
 
@@ -23,6 +23,9 @@ all_days = [
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(msg: types.Message):
+    if msg.from_user.is_bot:
+        return
+
     user = UserManager.UserManager().retrieve(msg.from_user.id)
 
     if user is None:
@@ -39,14 +42,14 @@ async def send_welcome(msg: types.Message):
 
 @dp.message_handler(lambda m: m.text in all_days)
 async def send_welcome(msg: types.Message):
+    if msg.from_user.is_bot:
+        return
+
     try:
         user = UserManager.UserManager().retrieve(msg.from_user.id)
 
         if user is None:
             await msg.answer(get_message("Please run /start command", msg.from_user.language_code))
-            return
-
-        if msg.from_user.is_bot:
             return
 
         if msg.from_user.language_code != 'ru':

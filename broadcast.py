@@ -7,8 +7,8 @@ from datetime import datetime, date
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import exceptions, executor
 from dotenv import load_dotenv
-from src.app.factories import MessageFactory, WeatherFactory
-from src.domain.managers import UserManager, BazaarManager
+from bot.src.app.factories import WeatherFactory, MessageFactory
+from bot.src.domain.managers import BazaarManager, UserManager
 
 load_dotenv()
 
@@ -25,7 +25,8 @@ messageCache = []
 
 async def send_message(user_id: int, text: str, disable_notification: bool = False) -> bool:
     try:
-        await bot.send_message(user_id, text, disable_notification=disable_notification, disable_web_page_preview=True)
+       pass
+       await bot.send_message(user_id, text, disable_notification=disable_notification, disable_web_page_preview=True)
     except exceptions.BotBlocked:
         log.error(f"Target [ID:{user_id}]: blocked by user")
     except exceptions.ChatNotFound:
@@ -52,14 +53,14 @@ async def broadcaster() -> int:
     count = 0
     try:
         for user in get_users():
-            lang = user['language_code']
+            lang = user[4]
             if lang == 'ru':
                 locale.setlocale(category=locale.LC_ALL, locale="Russian")
             else:
                 locale.setlocale(category=locale.LC_ALL, locale="English")
 
             if await send_message(
-                    int(user['id']), get_full_message(date.today().strftime("%A").title(), about_weather, lang)
+                    int(user[0]), get_full_message(date.today().strftime("%A").title(), about_weather, lang)
             ):
                 count += 1
             await asyncio.sleep(.05)

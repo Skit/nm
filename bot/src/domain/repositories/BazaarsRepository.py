@@ -1,4 +1,4 @@
-from src.app.server.connection import Connection
+from bot.src.app.server.connection import Connection
 
 
 class BazaarsRepository(Connection):
