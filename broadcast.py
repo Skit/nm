@@ -56,7 +56,7 @@ async def broadcaster() -> int:
             if lang == 'ru':
                 locale.setlocale(category=locale.LC_ALL, locale="ru_RU")
             else:
-                locale.setlocale(category=locale.LC_ALL, locale="en_EN")
+                locale.setlocale(category=locale.LC_ALL, locale="en_US")
 
             if await send_message(
                     int(user[0]), get_full_message(date.today().strftime("%A").title(), about_weather, lang)
