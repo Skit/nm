@@ -16,6 +16,5 @@ class Db:
 
 class StoreException(Exception):
     def __init__(self, message, *errors):
-        def __init__(self, message, *errors):
-            Exception.__init__(self, message)
-            self.errors = errors
+        Exception.__init__(self, message)
+        self.errors = errors
