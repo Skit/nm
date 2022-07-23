@@ -12,5 +12,5 @@ def index():
 
 @app.route('/broadcast', methods=['GET'])
 def broadcast():
-    print(os.system('broadcast.py'), flush=False)
+    print(os.system('./broadcast.py'), flush=False)
     return 'OK'
