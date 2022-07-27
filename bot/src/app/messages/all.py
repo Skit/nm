@@ -4,7 +4,7 @@ all_langs = {
         'Hello today is $day!': 'Привет, сегодня $day!',
         'Please run /start command': 'Пожалуйста, выполните команду /start',
         'Bot got sunstroke': 'Бот получил солнечный удар',
-        'Markets open from ~9am-7pm': 'Рынки работают с ~9-19',
+        'Markets operate apx. 9am-7pm': 'Рынки работают\nпримерно с 9 до 19',
         '$temp outside': 'За окном $temp',
         "Hello $name!\n\n«Remember to get affordable and healthy foods with my daily notifications about marketplaces "
         "in Alanya»\nYour best guide — nomad_bazaar.\n\nContact me via nomadbazaar.bot@gmail.com if you spot a mistake"

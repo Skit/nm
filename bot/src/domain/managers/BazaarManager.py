@@ -15,12 +15,12 @@ class BazaarManager(BazaarsRepository.BazaarsRepository, MenuRepository.MenuRepo
         if day_key:
             for bazaar in super().get_all(day_key, language_code):
                 message += "\n" + '📍<a href="' + bazaar[3] + '">' + bazaar[1] + '</a>' + "\n" + \
-                           bazaar[2] + "\n"
+                           bazaar[2]
         else:
             message = ''
 
         if message:
-            message += "\n" + '⏱' + get_message('Markets open from ~9am-7pm', language_code)
+            message += "\n" + '⏱' + get_message('Markets operate apx. 9am-7pm', language_code)
 
         return message
 
