@@ -33,7 +33,9 @@ async def send_welcome(msg: types.Message):
 
     menu = KeyboardFactory.get_keyboard(msg.from_user.language_code)
     message = get_message(
-        "Hello $name!\n\nIn touch nomad_bazaar is your guide to the Alanya market.\n\nBayran!",
+        "Hello $name!\n\n«Remember to get affordable and healthy foods with my daily notifications about marketplaces "
+        "in Alanya»\nYour best guide — nomad_bazaar.\n\nContact me via nomadbazaar.bot@gmail.com if you spot a mistake"
+        " or have an offer.",
         msg.from_user.language_code,
         name=msg.from_user.first_name
     )

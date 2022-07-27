@@ -72,8 +72,9 @@ async def broadcaster() -> int:
 def get_full_message(day: str, weather: str, lang: str):
     message = get_bazaar_message(day, lang)
     about_day = MessageFactory.get_message('Hello today is $day!', lang, day=day)
-    hello = MessageFactory.get_message(' $day $data', lang, day=about_day, data=weather)
-    return hello + "\n" + message + "\n"
+    about_weather = MessageFactory.get_message('$temp outside', lang, temp=weather)
+
+    return about_day + "\n" + about_weather + "\n" + message + "\n"
 
 
 def get_bazaar_message(day_abbr: str, language_code: str):
