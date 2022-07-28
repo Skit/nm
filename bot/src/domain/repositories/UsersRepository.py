@@ -3,7 +3,7 @@ from bot.src.app.server.connection import Connection, StoreException
 
 class UsersRepository(Connection):
 
-    async def add_user(self, user_id: int, first_name: str, last_name: str, username: str, language_code: str):
+    async def add_user(self, user_id: int, first_name, last_name, username, language_code: str):
         try:
             c = self.conn.cursor()
             c.execute('''
